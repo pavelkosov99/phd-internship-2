@@ -1,0 +1,2721 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://example.org/ontology"
+         xmlns="http://example.org/ontology#">
+
+<owl:Ontology rdf:about="http://example.org/ontology"/>
+
+<owl:ObjectProperty rdf:about="#ExplanatoryProperty"/>
+
+<owl:ObjectProperty rdf:about="#hasBodyPart">
+  <rdfs:subPropertyOf rdf:resource="#ExplanatoryProperty"/>
+  <rdfs:domain rdf:resource="#Clothes"/>
+  <rdfs:range rdf:resource="#BodyPart"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasWeatherType">
+  <rdfs:subPropertyOf rdf:resource="#ExplanatoryProperty"/>
+  <rdfs:domain rdf:resource="#Clothes"/>
+  <rdfs:range rdf:resource="#WeatherType"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasEdgeShape">
+  <rdfs:subPropertyOf rdf:resource="#ExplanatoryProperty"/>
+  <rdfs:domain rdf:resource="#Clothes"/>
+  <rdfs:range rdf:resource="#EdgeShape"/>
+</owl:ObjectProperty>
+
+<owl:Class rdf:about="#Clothes">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#BodyPart">
+  <rdfs:subClassOf rdf:resource="#Properties"/>
+</owl:Class>
+
+<owl:Class rdf:about="#WeatherType">
+  <rdfs:subClassOf rdf:resource="#Properties"/>
+</owl:Class>
+
+<owl:Class rdf:about="#EdgeShape">
+  <rdfs:subClassOf rdf:resource="#Properties"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Properties">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#WholeBody">
+  <rdfs:subClassOf rdf:resource="#BodyPart"/>
+  <rdf:type rdf:resource="#BodyPart"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TopPart">
+  <rdfs:subClassOf rdf:resource="#BodyPart"/>
+  <rdf:type rdf:resource="#BodyPart"/>
+</owl:Class>
+
+<owl:Class rdf:about="#BottomPart">
+  <rdfs:subClassOf rdf:resource="#BodyPart"/>
+  <rdf:type rdf:resource="#BodyPart"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Feet">
+  <rdfs:subClassOf rdf:resource="#BodyPart"/>
+  <rdf:type rdf:resource="#BodyPart"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Hands">
+  <rdfs:subClassOf rdf:resource="#BodyPart"/>
+  <rdf:type rdf:resource="#BodyPart"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Cold">
+  <rdfs:subClassOf rdf:resource="#WeatherType"/>
+  <rdf:type rdf:resource="#WeatherType"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Warm">
+  <rdfs:subClassOf rdf:resource="#WeatherType"/>
+  <rdf:type rdf:resource="#WeatherType"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Any">
+  <rdfs:subClassOf rdf:resource="#WeatherType"/>
+  <rdf:type rdf:resource="#WeatherType"/>
+</owl:Class>
+
+<owl:Class rdf:about="#StraightEdge">
+  <rdfs:subClassOf rdf:resource="#EdgeShape"/>
+  <rdf:type rdf:resource="#EdgeShape"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CurveEdge">
+  <rdfs:subClassOf rdf:resource="#EdgeShape"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TshirtTop">
+  <rdfs:subClassOf rdf:resource="#Clothes"/>
+  <rdfs:subClassOf>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#TopPart"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+        </owl:Restriction>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#WholeBody"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#BottomPart"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#Feet"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#Hands"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Cold"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Any"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasEdgeShape"/>
+              <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Trouser">
+  <rdfs:subClassOf rdf:resource="#Clothes"/>
+  <rdfs:subClassOf>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#BottomPart"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Any"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+        </owl:Restriction>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#WholeBody"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#TopPart"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#Feet"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#Hands"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Cold"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Warm"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasEdgeShape"/>
+              <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Pullover">
+  <rdfs:subClassOf rdf:resource="#Clothes"/>
+  <rdfs:subClassOf>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#TopPart"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+        </owl:Restriction>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#WholeBody"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#BottomPart"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#Feet"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#Hands"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasEdgeShape"/>
+              <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Any"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Warm"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Dress">
+  <rdfs:subClassOf rdf:resource="#Clothes"/>
+  <rdfs:subClassOf>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#WholeBody"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Any"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+        </owl:Restriction>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Cold"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Warm"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasEdgeShape"/>
+              <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#TopPart"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#BottomPart"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#Feet"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#Hands"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Coat">
+  <rdfs:subClassOf rdf:resource="#Clothes"/>
+  <rdfs:subClassOf>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#TopPart"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+        </owl:Restriction>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#WholeBody"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#BottomPart"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#Feet"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#Hands"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasEdgeShape"/>
+              <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Any"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Warm"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Sandal">
+  <rdfs:subClassOf rdf:resource="#Clothes"/>
+  <rdfs:subClassOf>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+        </owl:Restriction>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Cold"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Any"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasEdgeShape"/>
+              <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#TopPart"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#BottomPart"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#WholeBody"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#Hands"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Shirt">
+  <rdfs:subClassOf rdf:resource="#Clothes"/>
+  <rdfs:subClassOf>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#TopPart"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Any"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+        </owl:Restriction>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#WholeBody"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#BottomPart"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#Feet"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#Hands"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasEdgeShape"/>
+              <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Cold"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Warm"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Sneaker">
+  <rdfs:subClassOf rdf:resource="#Clothes"/>
+  <rdfs:subClassOf>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Any"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+        </owl:Restriction>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasEdgeShape"/>
+              <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Cold"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Warm"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#TopPart"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#BottomPart"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#WholeBody"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#Hands"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Bag">
+  <rdfs:subClassOf rdf:resource="#Clothes"/>
+  <rdfs:subClassOf>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Hands"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Any"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+        </owl:Restriction>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Cold"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Warm"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasEdgeShape"/>
+              <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#TopPart"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#BottomPart"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#Feet"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#WholeBody"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#AnkleBoot">
+  <rdfs:subClassOf rdf:resource="#Clothes"/>
+  <rdfs:subClassOf>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+        </owl:Restriction>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasEdgeShape"/>
+              <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Any"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasWeatherType"/>
+              <owl:someValuesFrom rdf:resource="#Warm"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#TopPart"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#BottomPart"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#WholeBody"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+        <owl:Class>
+          <owl:complementOf>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasBodyPart"/>
+              <owl:someValuesFrom rdf:resource="#Hands"/>
+            </owl:Restriction>
+          </owl:complementOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#Image_1">
+  <rdf:type rdf:resource="#Trouser"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#WholeBody"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#TopPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#BottomPart"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Hands"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Any"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Image_6">
+  <rdf:type rdf:resource="#Bag"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#WholeBody"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#TopPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#BottomPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#Hands"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Any"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Image_14">
+  <rdf:type rdf:resource="#Bag"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#WholeBody"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#TopPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#BottomPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#Hands"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Any"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Image_23">
+  <rdf:type rdf:resource="#Trouser"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#WholeBody"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#TopPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#BottomPart"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Hands"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Any"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Image_26">
+  <rdf:type rdf:resource="#Bag"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#WholeBody"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#TopPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#BottomPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#Hands"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Any"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Image_29">
+  <rdf:type rdf:resource="#Trouser"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#WholeBody"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#TopPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#BottomPart"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Hands"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Any"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Image_33">
+  <rdf:type rdf:resource="#Bag"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#WholeBody"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#TopPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#BottomPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#Hands"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Any"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Image_17">
+  <rdf:type rdf:resource="#Dress"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#WholeBody"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#TopPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#BottomPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Hands"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Any"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Image_13">
+  <rdf:type rdf:resource="#Shirt"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#WholeBody"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#TopPart"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#BottomPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Hands"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Any"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Image_9">
+  <rdf:type rdf:resource="#TshirtTop"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#WholeBody"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#TopPart"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#BottomPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Hands"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Warm"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Any"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Image_10">
+  <rdf:type rdf:resource="#Dress"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#WholeBody"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#TopPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#BottomPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Hands"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Any"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Image_16">
+  <rdf:type rdf:resource="#Shirt"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#WholeBody"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#TopPart"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#BottomPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Hands"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Any"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Image_32">
+  <rdf:type rdf:resource="#Sneaker"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#WholeBody"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#TopPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#BottomPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#Feet"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Hands"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Any"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Image_31">
+  <rdf:type rdf:resource="#Sneaker"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#WholeBody"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#TopPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#BottomPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#Feet"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Hands"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Any"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Image_2">
+  <rdf:type rdf:resource="#Pullover"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#WholeBody"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#TopPart"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#BottomPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Hands"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Cold"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Any"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Image_22">
+  <rdf:type rdf:resource="#Pullover"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#WholeBody"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#TopPart"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#BottomPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Hands"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Cold"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Any"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Image_0">
+  <rdf:type rdf:resource="#TshirtTop"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#WholeBody"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#TopPart"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#BottomPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Hands"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Warm"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Any"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Image_5">
+  <rdf:type rdf:resource="#Shirt"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#WholeBody"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#TopPart"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#BottomPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Hands"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Any"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Image_7">
+  <rdf:type rdf:resource="#Shirt"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#WholeBody"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#TopPart"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#BottomPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Hands"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Any"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Image_18">
+  <rdf:type rdf:resource="#Shirt"/>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#WholeBody"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasBodyPart"/>
+      <owl:someValuesFrom rdf:resource="#TopPart"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#BottomPart"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Feet"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBodyPart"/>
+          <owl:someValuesFrom rdf:resource="#Hands"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Cold"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasWeatherType"/>
+          <owl:someValuesFrom rdf:resource="#Warm"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasWeatherType"/>
+      <owl:someValuesFrom rdf:resource="#Any"/>
+    </owl:Restriction>
+  </rdf:type>
+  <rdf:type>
+    <owl:Class>
+      <owl:complementOf>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEdgeShape"/>
+          <owl:someValuesFrom rdf:resource="#StraightEdge"/>
+        </owl:Restriction>
+      </owl:complementOf>
+    </owl:Class>
+  </rdf:type>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasEdgeShape"/>
+      <owl:someValuesFrom rdf:resource="#CurveEdge"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+
+</rdf:RDF>

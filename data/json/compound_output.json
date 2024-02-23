@@ -1,0 +1,274 @@
+{
+    "Image_0": {
+        "Clothes": "TshirtTop",
+        "Properties": {
+            "BodyPart": "TopPart",
+            "WeatherType": "Warm",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_1": {
+        "Clothes": "Trouser",
+        "Properties": {
+            "BodyPart": "BottomPart",
+            "WeatherType": "Any",
+            "EdgeShape": "StraightEdge"
+        }
+    },
+    "Image_2": {
+        "Clothes": "Pullover",
+        "Properties": {
+            "BodyPart": "TopPart",
+            "WeatherType": "Cold",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_3": {
+        "Clothes": "Pullover",
+        "Properties": {
+            "BodyPart": "TopPart",
+            "WeatherType": "Any",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_4": {
+        "Clothes": "Dress",
+        "Properties": {
+            "BodyPart": "Feet",
+            "WeatherType": "Any",
+            "EdgeShape": "StraightEdge"
+        }
+    },
+    "Image_5": {
+        "Clothes": "Shirt",
+        "Properties": {
+            "BodyPart": "TopPart",
+            "WeatherType": "Any",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_6": {
+        "Clothes": "Bag",
+        "Properties": {
+            "BodyPart": "Hands",
+            "WeatherType": "Any",
+            "EdgeShape": "StraightEdge"
+        }
+    },
+    "Image_7": {
+        "Clothes": "Shirt",
+        "Properties": {
+            "BodyPart": "TopPart",
+            "WeatherType": "Any",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_8": {
+        "Clothes": "Sandal",
+        "Properties": {
+            "BodyPart": "TopPart",
+            "WeatherType": "Cold",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_9": {
+        "Clothes": "TshirtTop",
+        "Properties": {
+            "BodyPart": "TopPart",
+            "WeatherType": "Warm",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_10": {
+        "Clothes": "Dress",
+        "Properties": {
+            "BodyPart": "WholeBody",
+            "WeatherType": "Any",
+            "EdgeShape": "StraightEdge"
+        }
+    },
+    "Image_11": {
+        "Clothes": "Coat",
+        "Properties": {
+            "BodyPart": "TopPart",
+            "WeatherType": "Warm",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_12": {
+        "Clothes": "Coat",
+        "Properties": {
+            "BodyPart": "TopPart",
+            "WeatherType": "Warm",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_13": {
+        "Clothes": "Shirt",
+        "Properties": {
+            "BodyPart": "TopPart",
+            "WeatherType": "Any",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_14": {
+        "Clothes": "Bag",
+        "Properties": {
+            "BodyPart": "Hands",
+            "WeatherType": "Any",
+            "EdgeShape": "StraightEdge"
+        }
+    },
+    "Image_15": {
+        "Clothes": "Sandal",
+        "Properties": {
+            "BodyPart": "TopPart",
+            "WeatherType": "Cold",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_16": {
+        "Clothes": "Shirt",
+        "Properties": {
+            "BodyPart": "TopPart",
+            "WeatherType": "Any",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_17": {
+        "Clothes": "Dress",
+        "Properties": {
+            "BodyPart": "WholeBody",
+            "WeatherType": "Any",
+            "EdgeShape": "StraightEdge"
+        }
+    },
+    "Image_18": {
+        "Clothes": "Shirt",
+        "Properties": {
+            "BodyPart": "TopPart",
+            "WeatherType": "Any",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_19": {
+        "Clothes": "Shirt",
+        "Properties": {
+            "BodyPart": "TopPart",
+            "WeatherType": "Warm",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_20": {
+        "Clothes": "Coat",
+        "Properties": {
+            "BodyPart": "Feet",
+            "WeatherType": "Warm",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_21": {
+        "Clothes": "Coat",
+        "Properties": {
+            "BodyPart": "Feet",
+            "WeatherType": "Warm",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_22": {
+        "Clothes": "Pullover",
+        "Properties": {
+            "BodyPart": "TopPart",
+            "WeatherType": "Cold",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_23": {
+        "Clothes": "Trouser",
+        "Properties": {
+            "BodyPart": "BottomPart",
+            "WeatherType": "Any",
+            "EdgeShape": "StraightEdge"
+        }
+    },
+    "Image_24": {
+        "Clothes": "Sandal",
+        "Properties": {
+            "BodyPart": "TopPart",
+            "WeatherType": "Cold",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_25": {
+        "Clothes": "Sneaker",
+        "Properties": {
+            "BodyPart": "Feet",
+            "WeatherType": "Any",
+            "EdgeShape": "StraightEdge"
+        }
+    },
+    "Image_26": {
+        "Clothes": "Bag",
+        "Properties": {
+            "BodyPart": "Hands",
+            "WeatherType": "Any",
+            "EdgeShape": "StraightEdge"
+        }
+    },
+    "Image_27": {
+        "Clothes": "Shirt",
+        "Properties": {
+            "BodyPart": "Feet",
+            "WeatherType": "Any",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_28": {
+        "Clothes": "Coat",
+        "Properties": {
+            "BodyPart": "Feet",
+            "WeatherType": "Warm",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_29": {
+        "Clothes": "Trouser",
+        "Properties": {
+            "BodyPart": "BottomPart",
+            "WeatherType": "Any",
+            "EdgeShape": "StraightEdge"
+        }
+    },
+    "Image_30": {
+        "Clothes": "AnkleBoot",
+        "Properties": {
+            "BodyPart": "Feet",
+            "WeatherType": "Cold",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_31": {
+        "Clothes": "Sneaker",
+        "Properties": {
+            "BodyPart": "Feet",
+            "WeatherType": "Any",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_32": {
+        "Clothes": "Sneaker",
+        "Properties": {
+            "BodyPart": "Feet",
+            "WeatherType": "Any",
+            "EdgeShape": "CurveEdge"
+        }
+    },
+    "Image_33": {
+        "Clothes": "Bag",
+        "Properties": {
+            "BodyPart": "Hands",
+            "WeatherType": "Any",
+            "EdgeShape": "StraightEdge"
+        }
+    }
+}
